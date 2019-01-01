@@ -7,5 +7,5 @@ We examine the Jarzynski equality for a quenching process across the critical po
 
 Reference
 ----------------------------
-`Danh-Tai Hoang, B. Prasanna Venkatesh, Seungju Han, Junghyo Jo, Gentaro Watanabe, Mahn-Soo Choi, Scaling Law for Irreversible Entropy Production in Critical Systems, Scientific Reports, 6, 27603 (2016). <https://www.nature.com/articles/srep27603> `_
+`Danh-Tai Hoang, B. Prasanna Venkatesh, Seungju Han, Junghyo Jo, Gentaro Watanabe, Mahn-Soo Choi, Scaling Law for Irreversible Entropy Production in Critical Systems, Scientific Reports, 6, 27603 (2016). <https://www.nature.com/articles/srep27603>`_
 
