@@ -1,0 +1,19 @@
+#!/bin/sh
+
+gnuplot -persist << EOF
+set term postscript enhanced eps color 18
+set autoscale
+set key right top
+set pointsize 1
+set xlabel "epsilon"
+set ylabel "Ksi"
+set log
+set xrange [0.001:0.15]
+set yrange [0.1:200]
+set output "Ksi_eps.eps"
+plot "Ksi.dat" u 2:3 t "Ksi" w p pt 7 lc rgb "blue",\
+153+(x**-0.125) w l lt 1 lc rgb "red"
+
+EOF
+
+#153+x**-0.125 w l lt 1 lc rgb "red"

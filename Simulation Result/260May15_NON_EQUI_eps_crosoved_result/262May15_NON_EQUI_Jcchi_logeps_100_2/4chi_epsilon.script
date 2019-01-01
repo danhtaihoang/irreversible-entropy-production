@@ -1,0 +1,16 @@
+#!/bin/sh
+
+gnuplot -persist << EOF
+set term postscript enhanced eps color 20
+set autoscale
+set log
+set key right top
+set pointsize 1
+set xlabel "epsilon"
+set ylabel "chi"
+set output "chi_eps.eps"
+plot "E_av.dat" u 1:7 t "chi 1" w p pt 7 lc rgb "black"
+
+EOF
+#"E_av.dat" u 1:8 t "chi 2" w p pt 13 lc rgb "blue",\
+#"E_av.dat" u 1:9 t "chi 3" w p pt 9 lc rgb "red"

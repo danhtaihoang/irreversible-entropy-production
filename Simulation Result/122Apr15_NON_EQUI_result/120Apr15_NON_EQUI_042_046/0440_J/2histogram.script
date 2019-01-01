@@ -1,0 +1,12 @@
+#!/bin/sh
+
+gnuplot -persist << EOF
+set term postscript enhanced eps color 14
+set autoscale
+set key right top
+set pointsize 1
+set xlabel "S"
+set ylabel "P"
+set output "P0440_cut.eps"
+plot "P0440_cut.dat" u 2:3 notitle w p pt 7 lc rgb "blue"
+EOF

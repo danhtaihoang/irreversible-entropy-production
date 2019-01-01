@@ -1,0 +1,20 @@
+#!/bin/sh
+
+gnuplot -persist << EOF
+set term postscript enhanced eps color 20
+set autoscale
+set log
+set key right top
+set pointsize 1
+set xlabel "epsilon"
+set ylabel "chi"
+set output "chi_eps_collect.eps"
+plot "E_av_50_1.txt" u 1:8 t "50 chi 2" w p pt 13 lc rgb "black",\
+"E_av_50_2.dat" u 1:9 t "50 chi 3" w p pt 9 lc rgb "black",\
+"E_av_100_1.txt" u 1:8 t "100 chi 2" w p pt 13 lc rgb "blue",\
+"E_av_100_2.dat" u 1:9 t "100 chi 3" w p pt 9 lc rgb "blue",\
+"E_av_200_1.txt" u 1:8 t "200 chi 2" w p pt 13 lc rgb "red",\
+"E_av_200_2.dat" u 1:9 t "200 chi 3" w p pt 9 lc rgb "red"
+
+EOF
+

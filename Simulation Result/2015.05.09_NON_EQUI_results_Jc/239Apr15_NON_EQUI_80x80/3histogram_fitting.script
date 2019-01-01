@@ -1,0 +1,14 @@
+#!/bin/sh
+
+gnuplot -persist << EOF
+set term postscript enhanced eps color 14
+set autoscale
+set key right top
+set pointsize 1
+set xlabel "S"
+set ylabel "P"
+set output "P0420_fitting.eps"
+plot "P0420.dat" u 2:3 notitle w p pt 7 lc rgb "gray",\
+0.00272633*exp(-22.9857*x**2) w l lt 1 lw 3 lc rgb "black",\
+0.00269814*exp(-21.0453*x**2-30.5836*x**4) w l lt 1 lw 3 lc rgb "blue"
+EOF

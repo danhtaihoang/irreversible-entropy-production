@@ -1,0 +1,13 @@
+#!/bin/sh
+
+gnuplot -persist << EOF
+set term postscript enhanced eps color 18
+set autoscale
+set key right top
+set pointsize 1
+set xlabel "L.eps^nu"
+set ylabel "<exp(-sigma)>"
+set output "sigma.eps"
+plot "result_sigma.dat" u 4:7 w lp pt 7 lt 1 lw 1 lc rgb "blue"
+
+EOF

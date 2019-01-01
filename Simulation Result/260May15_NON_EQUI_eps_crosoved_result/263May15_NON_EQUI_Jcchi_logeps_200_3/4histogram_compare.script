@@ -1,0 +1,15 @@
+#!/bin/sh
+
+gnuplot -persist << EOF
+set term postscript enhanced eps color 14
+set autoscale
+set key right top
+set pointsize 1
+set xlabel "S"
+set ylabel "P"
+set output "P-comp.eps"
+plot "P0447.dat" u 2:3 t "J=0.447" w p pt 7 lc rgb "black",\
+"P044.dat" u 2:3 t "J=0.44" w p pt 7 lc rgb "blue",\
+"P043.dat" u 2:3 t "J=0.43" w p pt 7 lc rgb "pink",\
+"P042.dat" u 2:3 t "J=0.42" w p pt 7 lc rgb "red"
+EOF

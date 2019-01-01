@@ -1,0 +1,160 @@
+
+
+*******************************************************************************
+Fri May  8 11:58:42 2015
+
+
+FIT:    data read from 'Jc.dat' u 2:4
+        format = x:z
+        #datapoints = 6
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 0.000289473       delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-05
+ lambda	  : 0.707424
+
+initial set of free parameter values
+
+a               = -0.175275
+b               = 0.440681
+
+After 5 iterations the fit converged.
+final sum of squares of residuals : 1.85322e-07
+rel. change during last iteration : -3.06232e-08
+
+degrees of freedom    (FIT_NDF)                        : 4
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.000215245
+variance of residuals (reduced chisquare) = WSSR/ndf   : 4.63304e-08
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+
+a               = -0.424723        +/- 0.005463     (1.286%)
+b               = 0.441319         +/- 0.0001637    (0.03709%)
+
+
+correlation matrix of the fit parameters:
+
+               a      b      
+a               1.000 
+b              -0.844  1.000 
+
+
+*******************************************************************************
+Fri May  8 12:02:20 2015
+
+
+FIT:    data read from 'Jc_cut.dat' u 2:3
+        format = x:z
+        #datapoints = 4
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 1.33208           delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-05
+ lambda	  : 0.707208
+
+initial set of free parameter values
+
+a               = 1
+b               = 1
+
+After 6 iterations the fit converged.
+final sum of squares of residuals : 0
+abs. change during last iteration : -1.42741e-20
+
+
+Hmmmm.... Sum of squared residuals is zero. Can't compute errors.
+
+Final set of parameters 
+======================= 
+
+a               = -0.2           
+b               = 0.441          
+
+
+*******************************************************************************
+Fri May  8 12:04:14 2015
+
+
+FIT:    data read from 'Jc_cut.dat' u 2:4
+        format = x:z
+        #datapoints = 4
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 1.34609           delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-05
+ lambda	  : 0.707208
+
+initial set of free parameter values
+
+a               = 1
+b               = 1
+
+After 6 iterations the fit converged.
+final sum of squares of residuals : 3.08149e-33
+abs. change during last iteration : -1.94678e-20
+
+
+Hmmmm.... Sum of squared residuals is zero. Can't compute errors.
+
+Final set of parameters 
+======================= 
+
+a               = -0.4           
+b               = 0.441          
+
+
+*******************************************************************************
+Sat May  9 11:10:36 2015
+
+
+FIT:    data read from "Jc.dat" u 2:5
+        format = x:z
+        #datapoints = 4
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 1.37439           delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-05
+ lambda	  : 0.707208
+
+initial set of free parameter values
+
+a               = 1
+b               = 1
+
+After 6 iterations the fit converged.
+final sum of squares of residuals : 3.08149e-33
+abs. change during last iteration : -3.22676e-20
+
+
+Hmmmm.... Sum of squared residuals is zero. Can't compute errors.
+
+Final set of parameters 
+======================= 
+
+a               = -0.8           
+b               = 0.441          

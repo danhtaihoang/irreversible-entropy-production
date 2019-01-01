@@ -1,0 +1,13 @@
+#!/bin/sh
+
+gnuplot -persist << EOF
+set term postscript enhanced eps color 14
+set autoscale
+set key right top
+set pointsize 1
+set xlabel "S"
+set ylabel "P"
+set output "P060_fitting.eps"
+plot "P060.dat" u 2:3 notitle w p pt 7 lc rgb "gray",\
+0.12779*exp(-51624*(x-0.974)**2) w l lt 1 lw 3 lc rgb "black"
+EOF

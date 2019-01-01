@@ -1,0 +1,13 @@
+#!/bin/sh
+
+gnuplot -persist << EOF
+set term postscript enhanced eps color 14
+set autoscale
+set key right top
+set pointsize 1
+set xlabel "J"
+set ylabel "xi"
+set output "correlation_compare.eps"
+plot "correlation.dat" u 1:5 t "1k" w p pt 7 lc rgb "black",\
+"correlation_10k.dat" u 1:5 t "10k" w p pt 5 lc rgb "blue"
+EOF

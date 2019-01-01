@@ -1,0 +1,15 @@
+#!/bin/sh
+
+gnuplot -persist << EOF
+set term postscript enhanced eps color 20
+set autoscale
+set log x
+set key right top
+set pointsize 1
+set xlabel "epsilon"
+set ylabel "slop chi"
+set output "slop_chi_40_1.eps"
+plot "chi_slop_40_1.txt" u 1:2 t "40" w p pt 7 lc rgb "black"
+
+EOF
+

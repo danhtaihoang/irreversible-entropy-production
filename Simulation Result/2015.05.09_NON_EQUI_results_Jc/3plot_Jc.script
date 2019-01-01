@@ -1,0 +1,21 @@
+#!/bin/sh
+
+gnuplot -persist << EOF
+set term postscript enhanced eps color 20
+set autoscale
+set key right top
+set pointsize 1
+set xlabel "1/L"
+set ylabel "Jc"
+set xrange [0:0.05]
+set yrange [0.415:0.445]
+set mytics 5
+set mxtics 10
+set output "Jc.eps"
+plot "Jc.dat" u 2:3 t 'by Cv' w p pt 7 lc rgb "blue",\
+"Jc.dat" u 2:4 t 'by chi' w p pt 13 lc rgb "red",\
+"Jc.dat" u 2:5 t 'by P(S)' w p pt 11 lc rgb "black",\
+-0.2*x+0.441 w l lt 1 lc rgb "blue",\
+-0.4*x+0.441 w l lt 1 lc rgb "red",\
+-0.8*x+0.441 w l lt 1 lc rgb "black"
+EOF

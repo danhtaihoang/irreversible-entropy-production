@@ -1,0 +1,13 @@
+#!/bin/sh
+
+gnuplot -persist << EOF
+set term postscript enhanced eps color 18
+set autoscale
+set key right top
+set pointsize 1
+set xlabel "eps-1"
+set ylabel "correlation"
+set xrange [0:30]
+set output "correlation.eps"
+plot "correlation_new.dat" u 3:4 notitle w p pt 7 lc rgb "blue"
+EOF

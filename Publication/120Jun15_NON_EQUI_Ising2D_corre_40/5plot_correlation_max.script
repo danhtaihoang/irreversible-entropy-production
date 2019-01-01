@@ -1,0 +1,13 @@
+#!/bin/sh
+
+gnuplot -persist << EOF
+set term postscript enhanced eps color 22
+set autoscale
+set key right top
+set pointsize 1
+set xlabel "L"
+set ylabel "xi max"
+set output "correlation max.eps"
+plot "correlation_max.dat" u 1:2 notitle w p pt 7 lc rgb "blue",\
+0.243716*x-0.471371 w l lt 1 lw 2 lc rgb "red"
+EOF

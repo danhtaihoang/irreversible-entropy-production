@@ -1,0 +1,116 @@
+#!/bin/sh
+# ===========================================================================================
+# **************** Lua chon buoc tien hanh ********************
+# ===========================================================================================
+
+echo -n "Choise the step (1 for compile parallel Epsilon, 2 for collection) : "
+read number_buoc
+
+# ===========================================================================================
+#  ****************** COMPILE Parallel T ******************
+# ===========================================================================================
+# ---------------------------------------------
+# Nhap cac gia tri vao
+if [ $number_buoc -eq 1 ]
+then
+echo "COMPILE Parallel Epsilon"
+
+clear
+rm -r config_ini_3D.pdb
+rm -r config_3D
+rm -r histogram
+rm *.dat
+rm a.out
+gfortran -Wall -fdefault-integer-8 -fdefault-real-8 1main_BIO.f90
+
+echo -n "eps-min = "
+read Jmin
+
+echo -n "delta eps = "
+read delJ
+
+echo -n "n eps = "
+read nJ
+
+# ---------------------------------------------
+# Tao cac thu muc, compile lan luot tung thu muc
+
+mkdir a
+cp 1parameter.in a
+cp a.out a
+
+i_folder=1
+while [ $i_folder -le $nJ ]
+do
+cp -r a $i_folder
+
+J=$(echo "scale=6; $Jmin+($i_folder-1)*$delJ" | bc)
+
+sed -i "s/'epsmin                    '  1.0/'epsmin                    '  $J/g" $i_folder/1parameter.in
+
+echo "running folder $i_folder"
+cd $i_folder
+./a.out &
+cd ..
+
+i_folder=$(echo "scale=0; $i_folder+1" | bc)
+
+done
+
+rm -r a
+
+fi
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# ===========================================================================================
+# ===========================================================================================
+#  ****************** BUOC TONG HOP KET QUA ******************
+# ===========================================================================================
+# ===========================================================================================
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+# ---------------------------------------------
+# Nhap cac gia tri vao
+if [ $number_buoc -eq 2 ]
+then
+echo "BUOC TONG HOP KET QUA SAU KHI COMPILE"
+echo -n "delete folder?"
+read delete_folder
+
+echo -n "Number of folder = "
+read nT
+
+# ---------------------------------------------
+# Tien hanh tong hop ket qua
+rm *.dat
+cp 1/config_ini_3D.pdb config_ini_3D.pdb
+
+mkdir config_3D
+mkdir histogram
+
+i=1
+while [ $i -le $nT ]
+do
+number=$(echo "scale=0;10000000+$i" | bc)
+cp $i/config_3D/config_3D_10000001.pdb config_3D/config_3D_$number.pdb
+cp $i/histogram/P_10000001.dat histogram/P_$number.dat
+
+cat $i/E_av.dat >> E_av.dat
+
+
+if [ $delete_folder -eq 1 ]
+then
+rm -r $i
+fi
+
+i=$(echo "scale=0; $i+1" | bc)
+done
+
+fi
+
+# ================================= THE END ============================================
+
+
+
+
+
+

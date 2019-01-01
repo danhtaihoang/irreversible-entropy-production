@@ -1,0 +1,40 @@
+#!/bin/sh
+
+gnuplot -persist << EOF
+set term postscript enhanced eps color 18
+set autoscale
+set key right top
+set pointsize 1
+set xlabel "S"
+set ylabel "FMF"
+set yrange [0:0.2]
+set output "FMF.eps"
+plot "FMF.dat" u 1:2 t "MF" w p pt 7 lc rgb "red",\
+
+EOF
+
+gnuplot -persist << EOF
+set term postscript enhanced eps color 18
+set autoscale
+set key right top
+set pointsize 1
+set xlabel "S"
+set ylabel "F"
+set yrange [0:0.001]
+set output "F.eps"
+plot "F.dat" u 1:2 t "MC" w p pt 7 lc rgb "blue"
+EOF
+
+gnuplot -persist << EOF
+set term postscript enhanced eps color 18
+set autoscale
+set key right top
+set pointsize 1
+set xlabel "S"
+set ylabel "F-FMF"
+set yrange [0:0.2]
+set output "F-FMF.eps"
+plot "F.dat" u 1:2 t "MC" w p pt 7 lc rgb "blue",\
+"F.dat" u 1:3 t "MCx100" w p pt 13 lc rgb "black",\
+"FMF.dat" u 1:2 t "MF" w p pt 7 lc rgb "red"
+EOF

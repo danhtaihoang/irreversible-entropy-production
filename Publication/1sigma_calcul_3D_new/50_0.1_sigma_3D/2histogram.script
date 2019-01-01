@@ -1,0 +1,13 @@
+#!/bin/sh
+
+gnuplot -persist << EOF
+set term postscript enhanced eps color 18
+set autoscale
+set key right top
+set pointsize 1
+set xlabel "S"
+set ylabel "P"
+set output "P002.eps"
+plot "P002_1.txt" u 2:3 t "initial -0.02" w l lt 2 lw 1 lc rgb "red",\
+"P002_2.txt" u 2:3 t "final 0.02" w l lt 2 lw 1 lc rgb "blue"
+EOF

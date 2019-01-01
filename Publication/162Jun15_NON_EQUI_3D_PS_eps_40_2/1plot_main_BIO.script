@@ -1,0 +1,106 @@
+#!/bin/sh
+
+#=========================================================================================
+# Loai bo, chi lay tu cot 31 den cot 35 cua file parameter.in
+cut -c31-35 1parameter.in > parameter_file_giantiep.dat
+
+# Doc gia tri dua vao so dong
+i=1
+while [ $i -le 25 ]
+do
+read value
+
+if [ $i -eq 3 ]
+then
+GS=$value
+fi
+
+if [ $i -eq 6 ]
+then
+nx=$value
+fi
+
+if [ $i -eq 7 ]
+then
+ny=$value
+fi
+
+if [ $i -eq 8 ]
+then
+nz=$value
+fi
+
+i=$(echo "scale=0; $i+1" | bc)
+done < parameter_file_giantiep.dat
+
+rm parameter_file_giantiep.dat
+echo "GS: " $GS
+echo "nx: " $nx
+echo "ny: " $ny
+echo "nz: " $nz
+
+# =============================================================================================
+# =============================================================================================
+# VE DO THI
+# =============================================================================================
+# =============================================================================================
+
+gnuplot -persist << EOF
+set term postscript enhanced eps color 20
+set autoscale
+set key right top
+set pointsize 1
+set xlabel "eps"
+set ylabel "E"
+set output "E.eps"
+set title "nx=$nx , ny=$ny, nz=$nz"
+plot "E_av.dat" u 1:2 notitle w p pt 7 lc rgb "blue"
+EOF
+
+gnuplot -persist << EOF
+set term postscript enhanced eps color 20
+set autoscale
+set key right top
+set pointsize 1
+set xlabel "eps"
+set ylabel "M"
+set output "M.eps"
+set title "nx=$nx , ny=$ny, nz=$nz"
+plot "E_av.dat" u 1:3 notitle w p pt 7 lc rgb "blue"
+EOF
+
+gnuplot -persist << EOF
+set term postscript enhanced eps color 20
+set autoscale
+set key right top
+set pointsize 1
+set xlabel "eps"
+set ylabel "Cv"
+set output "Cv.eps"
+set title "nx=$nx , ny=$ny, nz=$nz"
+plot "E_av.dat" u 1:4 notitle w p pt 7 lc rgb "blue"
+EOF
+
+gnuplot -persist << EOF
+set term postscript enhanced eps color 20
+set autoscale
+set key right top
+set pointsize 1
+set xlabel "eps"
+set ylabel "chi"
+set output "chi.eps"
+set title "nx=$nx , ny=$ny, nz=$nz"
+plot "E_av.dat" u 1:5 notitle w p pt 7 lc rgb "blue"
+EOF
+
+gnuplot -persist << EOF
+set term postscript enhanced eps color 20
+set autoscale
+set key right top
+set pointsize 1
+set xlabel "eps"
+set ylabel "correlation"
+set output "correlation.eps"
+set title "nx=$nx , ny=$ny, nz=$nz"
+plot "correlation.dat" u 1:5 notitle w p pt 7 lc rgb "blue"
+EOF

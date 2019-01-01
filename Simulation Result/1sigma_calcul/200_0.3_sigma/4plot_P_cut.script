@@ -1,0 +1,15 @@
+#!/bin/sh
+
+gnuplot -persist << EOF
+set term postscript enhanced eps color 18
+set autoscale
+set key right top
+set pointsize 1
+set xlabel "S"
+set ylabel "P"
+set output "P-cut.eps"
+plot "P_10000001.dat" u 2:3 t "-0.002" w l lt 2 lw 1 lc rgb "red",\
+"P_10000031.dat" u 2:3 t "0.002" w l lt 2 lw 1 lc rgb "blue",\
+"P1_cut.dat" u 1:2 t "P1 cut" w l lt 1 lw 3 lc rgb "red",\
+"P2_cut.dat" u 1:2 t "P2 cut" w l lt 1 lw 3 lc rgb "blue"
+EOF
